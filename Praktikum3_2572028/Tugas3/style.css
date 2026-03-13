@@ -1,0 +1,166 @@
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: auto;
+    padding: auto;
+    width: 100%;
+}
+
+p.footer {
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+img.pokemon {
+    width: 500px;
+    height: 500px;
+}
+
+.container{
+    width: 100%;
+    height: auto;
+    
+}
+
+table.header {
+    height: inherit;
+    width: inherit;
+    border-collapse: collapse;
+    table-layout: fixed;
+    background-color: #282b30;
+}
+
+a.header {
+    text-decoration: none;
+    color: white;
+}
+
+td.header {
+    text-align: center;
+    margin: 10px;
+    padding: 5px;
+}
+
+td:hover.header {
+    background-color: #393e45;
+    text-align: center;
+}
+
+td:active.header {
+    background-color: #7289da;
+    text-align: center;
+}
+
+table.charmander {
+    height: inherit;
+    width: inherit;
+    background-color: #fe9441;
+    table-layout: fixed;
+    margin: auto;
+}
+
+table.squirtle {
+    height: inherit;
+    width: inherit;
+    background-color: #93c8d0;
+    table-layout: fixed;
+    margin: auto;
+}
+
+table.bulbasaur {
+    height: inherit;
+    width: inherit;
+    background-color: #83ba36;
+    table-layout: fixed;
+    margin: auto;
+}
+
+table.stats {
+    width: 100%;
+    height: auto;
+    background-color: inherit;
+    table-layout: fixed;
+    margin: auto;
+    font-family: cursive;
+
+
+}
+table.bulbasaur_type {
+    width: 100%;
+    height: auto;
+    background-color: inherit;
+    padding: auto;
+}
+
+tr.pokemon,
+td.pokemon {
+    text-align: center;
+}
+
+td.right {
+    text-align: right;
+}
+
+td.left {
+    text-align: left;
+}
+
+.button_charmander {
+    margin: auto;
+    width: 250px;
+    height: 50px;
+    border-radius: 100px;
+    border: 1px solid black;
+    font-weight: bold;
+    background-color: #f24405;
+    color: white;
+}
+
+.button_squirtle {
+    margin: auto;
+    width: 250px;
+    height: 50px;
+    border-radius: 100px;
+    border: 1px solid black;
+    font-weight: bold;
+    background-color: #2389da;
+    color: white;
+}
+
+.button_bulbasaur1 {
+    margin: auto;
+    width: 250px;
+    height: 50px;
+    border-radius: 100px;
+    border: 1px solid black;
+    font-weight: bold;
+    background-color: #107800;
+    color: white;
+}
+
+.button_bulbasaur2 {
+    margin: auto;
+    width: 250px;
+    height: 50px;
+    border-radius: 100px;
+    border: 1px solid black;
+    font-weight: bold;
+    background-color: #7b63ad;
+    color: white;
+}
+
+.button_type {
+    margin: auto;
+    width: 250px;
+    height: 50px;
+    border-radius: 100px;
+    border: 1px solid black;
+    font-weight: bold;
+    background-color: #282b30;
+    color: white;
+}
+
+.button_type:hover {
+    background-color: white;
+    color: black;
+}
