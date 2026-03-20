@@ -1,0 +1,117 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fdf5e6;
+    margin: 0;
+    padding: 0;
+}
+
+h2.judul {
+    color: #e63946;
+    text-align: center;
+}
+
+h3.subjudul {
+    color: #f19c1f;
+    border-left: 5px solid #f19c1f;
+    margin-left: 10px;
+}
+
+table.fries {
+    width: 200px;
+    height: 150px;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+ul,
+ol {
+    color: #444;
+    line-height: 1.6;
+    padding-left: auto;
+}
+
+p {
+    color: #444;
+    line-height: 1.6;
+    margin-left: 15px;
+}
+
+p.kosong {
+    border-top: 1px dashed #ccc;
+    height: 250px;
+}
+
+table tr th.red {
+    background-color: #e63946;
+}
+
+table tr th.yellow {
+    background-color: #ffcc00;
+}
+
+table tr th.outline {
+    background-color: #402D26;
+}
+
+.header {
+    background-color: #d9534f;
+    color: white;
+    text-align: center;
+    line-height: 60px;
+    box-shadow: 0 2px 5px black;
+    font-weight: bold;
+    width: 100%;
+}
+
+.card {
+    background-color: white;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 15px black;
+    margin: auto;
+    width: 500px;
+    border-radius: 15px;
+    height: auto;
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+.discount {
+    position: sticky;
+    background-color: #76b947;
+    top: 0;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 2px 4px black;
+    border-radius: 15px;
+    font-weight: bold;
+    margin-top: -10px;
+}
+
+.secret {
+    position: fixed;
+    bottom: 20px;
+    width: 500px;
+    background-color: #402D26;
+    color: white;
+    z-index: 0;
+    border-radius: 50px;
+    margin: auto;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+span.bold {
+    font-weight: bold;
+    color: white;
+}
+
+.secret:hover {
+    background-color: #f19c1f;
+}
