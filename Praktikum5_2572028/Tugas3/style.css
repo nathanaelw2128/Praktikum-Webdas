@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+nav {
+    background-color: #0d0d0d;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 10px 5px;
+    text-decoration: none;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: white;
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav .logo {
+    color: #e50914;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.btn-login {
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+}
+
+.hero {
+    background-color: #141414;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 80px 40px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+}
+
+.hero button {
+    background-color: #e50914;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 6px;
+    max-width: 150px;
+}
+
+.film-section {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 40px;
+}
+
+.film-section h2 {
+    margin-bottom: 10px;
+}
+
+.film-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.film-card {
+    background-color: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.2 ease;
+
+}
+
+.film-card:hover {
+    transform: scale(1.05);
+}
+
+.poster {
+    height: 160px;
+    background: linear-gradient(180deg, #444, #111);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.info {
+    padding: 12px;
+}
+
+footer {
+    background-color: #0d0d0d;
+    color: #666;
+    text-align: center;
+    padding: 20px;
+}
+
+@media only screen and (max-width:1024px) {
+    .film-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .btn-login {
+        display: none;
+    }
+}
+
+@media only screen and (max-width:600px) {
+    .film-grid {
+        grid-template-columns: repeat(1fr);
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        padding: 0;
+    }
+
+    .hero {
+        padding: 60px 20px;
+    }
+
+}
