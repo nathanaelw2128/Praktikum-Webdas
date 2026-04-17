@@ -1,0 +1,28 @@
+.cover {
+    background: linear-gradient(135deg, #738cf9 0%, #a379e4 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 100px 20px;
+}
+
+.logo {
+    font-size: 10rem;
+}
+
+.promo {
+    font-size: 6rem;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+}
+
+.toast {
+    z-index: 1100px;
+}
