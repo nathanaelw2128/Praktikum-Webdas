@@ -1,0 +1,59 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.5s ease;
+}
+
+.card {
+    display: flexbox;
+    justify-content: center;
+    justify-items: center;
+    background-color: white;
+    padding: 10px 10px;
+    max-width: 250;
+    margin: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.display-area {
+    display: flexbox;
+    justify-content: center;
+    justify-items: center;
+    margin: 20px;
+}
+
+button {
+    background-color: #ddd;
+    padding: 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
+}
+
+.btn-container {
+    margin: 10px;
+}
+
+.btn-reset {
+    justify-self: center;
+    justify-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+#counter {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.footer {
+    margin: 20px;
+    font-size: smaller;
+    color: #777;
+}

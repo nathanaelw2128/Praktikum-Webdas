@@ -1,0 +1,79 @@
+<!--2572028 - Nathanael Wijaya-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - 2572028</title>
+</head>
+
+<body>
+    <h1>Quiz Matematika</h1>
+    <p>Klik tombol di bawah untuk mulai mengerjakan soal matematika acak. Ketik "exit" atau tekan Cancel untuk berhenti
+    </p>
+    <button onclick="mulaiQuiz()">Mulai Quiz</button>
+    <h2 id="result"></h2>
+    <p id="datetime"></p>
+    <footer>
+        &copy; 2026 2572028 - Nathanael Wijaya. All rights reserved.
+    </footer>
+
+
+    <script>
+        const oper = ["+", "-", "*"]
+
+
+        function hasil_benar(op, nomor_1, nomor_2, hasil) {
+            if (op == "+") {
+                hasil = nomor_1 + nomor_2;
+            } else if (op == "-") {
+                hasil = nomor_1 - nomor_2;
+            } else if (op = "*") {
+                hasil = nomor_1 * nomor_2
+            }
+            return hasil;
+        }
+
+        function mulaiQuiz() {
+            var kondisi = true;
+            var total = 0;
+            var score = 0;
+            while (kondisi == true) {
+                var hasil = 0;
+                var nomor_1 = Math.floor(Math.random() * 20) + 1;
+                var nomor_2 = Math.floor(Math.random() * 20) + 1;
+                var i = Math.floor(Math.random() * 2);
+                var opt_pilih = oper[i];
+                var jawab = prompt("Berapa hasil dari " + nomor_1 + " " + opt_pilih + " " + nomor_2 + " ?");
+
+                hasil = hasil_benar(opt_pilih, nomor_1, nomor_2, hasil);
+                total = total + 1;
+                if (jawab == hasil) {
+                    var al = alert("Jawaban anda benar!")
+                    score = score + 1;
+                } else if (jawab == "exit") {
+                    kondisi = false
+                } else if (jawab == null) {
+                    kondisi = false
+                } else {
+                    var al = alert(`Jawaban salah, ${nomor_1} ${opt_pilih} ${nomor_2} = ${hasil} `)
+                }
+            }
+            document.getElementById("result").innerHTML = `Score Akhir ${score}/${total}`
+            var now = new Date();
+
+            var tanggal = now.getDate();
+            var bulan = now.getMonth() + 1;
+            var tahun = now.getFullYear();
+
+            var jam = String(now.getHours()).padStart(2, '0');
+            var menit = String(now.getMinutes()).padStart(2, '0');
+            var detik = String(now.getSeconds()).padStart(2, '0');
+
+            document.getElementById("datetime").innerHTML = `Selesai pada: ${tanggal}/${bulan}/${tahun}, ${jam}.${menit}.${detik}`;
+        }
+    </script>
+</body>
+
+</html>

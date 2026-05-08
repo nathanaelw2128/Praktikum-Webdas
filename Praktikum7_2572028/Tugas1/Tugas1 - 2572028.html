@@ -1,0 +1,113 @@
+<!--2572028 - Nathanael Wijaya-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game - 2572028</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <img id="img_player">
+        <p id="score">0 - 0</p>
+        <img id="img_comp">
+    </div>
+    <div class="container">
+        <button onclick="pick_rock()">&#x1F311;</button>
+        <button onclick="pick_paper()">&#x1F4C4;</button>
+        <button onclick="pick_scissor()">&#9986;</button>
+    </div>
+    <p id="condition"></p>
+    <script>
+        var player_img = document.getElementById("img_player")
+        var comp_img = document.getElementById("img_comp")
+        var condition = document.getElementById("condition")
+        var play_choice = 0;
+        var comp_pick = 0;
+        var score_comp = 0;
+        var score_play = 0;
+
+        function comp_turn() {
+            comp_pick = (Math.floor(Math.random() * 3) + 1);
+
+            if (comp_pick == 1) {
+                comp_img.src = "rock.png";
+            } else if (comp_pick == 2) {
+                comp_img.src = "paper.png";
+            } else if (comp_pick == 3) {
+                comp_img.src = "scissor.png";
+            }
+        }
+
+        function main_logic() {
+            if (play_choice == comp_pick) {
+                condition.innerHTML = "DRAW"
+            } else {
+                if (play_choice == 1) {
+                    if (comp_pick == 2) {
+                        score_comp += 1
+                        condition.innerHTML = "BOT WIN"
+                    } if (comp_pick == 3) {
+                        score_play += 1
+                        condition.innerHTML = "PLAYER WIN"
+                    }
+                } if (play_choice == 2) {
+                    if (comp_pick == 3) {
+                        score_comp += 1
+                        condition.innerHTML = "BOT WIN"
+                    } if (comp_pick == 1) {
+                        score_play += 1
+                        condition.innerHTML = "PLAYER WIN"
+                    }
+                } if (play_choice == 3) {
+                    if (comp_pick == 1) {
+                        score_comp += 1
+                        condition.innerHTML = "BOT WIN"
+                    } if (comp_pick == 2) {
+                        score_play += 1
+                        condition.innerHTML = "PLAYER WIN"
+                    }
+                }
+            }
+        }
+
+        function update_score() {
+            document.getElementById("score").innerHTML = score_play + " - " + score_comp
+        }
+
+
+
+        function pick_rock() {
+            play_choice = 1
+            player_img.src = "rock.png";
+            comp_turn()
+            main_logic()
+            update_score()
+        }
+
+        function pick_paper() {
+            play_choice = 2
+            player_img.src = "paper.png";
+            comp_turn()
+            main_logic()
+            update_score()
+        }
+
+        function pick_scissor() {
+            play_choice = 3
+            player_img.src = "scissor.png";
+            comp_turn()
+            main_logic()
+            update_score()
+        }
+
+
+
+        console.log(comp_pick);
+    </script>
+</body>
+
+</html>

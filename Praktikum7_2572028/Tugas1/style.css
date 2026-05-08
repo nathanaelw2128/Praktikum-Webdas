@@ -1,0 +1,53 @@
+ body {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+     margin: 0;
+ }
+
+ .container {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin: 25px 25px;
+ }
+
+ button {
+     max-width: 50px;
+     max-height: 50px;
+     border-radius: 5px;
+ }
+
+ .main-container {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+ #condition {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 20px;
+ }
+
+ #score {
+     margin: 20px;
+     font-size: 25px;
+ }
+
+ img {
+     width: 180px;
+     height: 370px;
+ }
+
+ button {
+     height: auto;
+     width: auto;
+     justify-content: center;
+     font-size: 30px;
+     border-radius: 5px;
+     margin: 15px 10px;
+ }
