@@ -1,0 +1,44 @@
+body {
+    background: black;
+    color: white;
+    font-family: sans-serif;
+    overflow: hidden;
+    /* Supaya tidak ada scroll saat box muncul */
+}
+
+.message {
+    text-align: center;
+    padding: 10px;
+    font-size: 1.5rem;
+    height: 60px;
+}
+
+.stats {
+    text-align: center;
+    color: #ffeb3b;
+    font-size: 1.2rem;
+}
+
+.output {
+    width: 100vw;
+    height: calc(100vh - 150px);
+    position: relative;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    display: none;
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+#start-box {
+    width: 100px;
+    height: 100px;
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+    text-align: center;
+}

@@ -1,0 +1,28 @@
+body {
+    justify-content: center;
+    justify-items: center;
+    margin: 20px;
+    padding: auto;
+
+}
+
+.container {
+    display: flexbox;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    max-width: 550px;
+    max-height: auto;
+    padding: 10px 10px;
+}
+
+#opt-tipe {
+    width: 100%;
+    border-radius: 5px;
+    padding: 5px 5px;
+}
+
+#number {
+    width: 95%;
+    border-radius: 5px;
+    padding: 5px 5px;
+}
