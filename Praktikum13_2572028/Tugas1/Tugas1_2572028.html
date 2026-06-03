@@ -1,0 +1,347 @@
+<!--2572028-Nathanael W-->
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum - 2572028</title>
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+
+        h1 {
+            text-align: center;
+        }
+
+
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+
+        button {
+            padding: 8px 14px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+
+        .username {
+            font-weight: bold;
+        }
+
+
+        .reply-box {
+            margin-left: 30px;
+            margin-top: 10px;
+            border-left: 3px solid #ddd;
+            padding-left: 15px;
+            display: none;
+        }
+
+
+        .reply-item {
+            background: #fafafa;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+        }
+
+
+        .reply-form {
+            display: none;
+            margin-top: 10px;
+        }
+
+
+        .like-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+        }
+
+
+        .show-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+        }
+
+
+        .reply-btn {
+            background: #ff9800;
+            color: white;
+            border: none;
+        }
+
+
+        .send-btn {
+            background: #444;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container">
+
+
+        <h1>Forum Diskusi JSON & Local Storage</h1>
+
+
+        <div class="card">
+
+
+            <h3>Tambah Komentar</h3>
+
+
+            <input type="text" id="username" placeholder="Nama">
+
+
+            <textarea id="comment" rows="4" placeholder="Tulis komentar..."></textarea>
+
+
+            <button class="send-btn" onclick="addComment()">
+                Kirim Komentar
+            </button>
+
+
+        </div>
+
+
+        <div id="commentList"></div>
+
+
+    </div>
+
+
+    <script>
+        const defaultComments = [
+            {
+                id: 1,
+                username: "Andi",
+                comment: "JSON sangat membantu untuk pertukaran data.",
+                likes: 5,
+                replies: [
+                    { username: "Budi", comment: "Setuju sekali." },
+                    { username: "Sinta", comment: "JSON lebih enak dibaca." }
+                ]
+            },
+            {
+                id: 2,
+                username: "Rina",
+                comment: "Local Storage cukup berguna untuk project kecil.",
+                likes: 2,
+                replies: []
+            }
+        ];
+
+
+
+        let comments = JSON.parse(localStorage.getItem("comments")) || defaultComments;
+
+
+
+        function saveData() {
+            localStorage.setItem("comments", JSON.stringify(comments));
+        }
+
+
+        function renderComments() {
+            const container = document.getElementById("commentList");
+
+            container.innerHTML = "";
+
+            comments.forEach(function (comment) {
+
+                let repliesHTML = "";
+                comment.replies.forEach(function (reply) {
+                    repliesHTML += `
+                <div class="reply-item">
+                    <strong>${reply.username}</strong>
+                    <p>${reply.comment}</p>
+                </div>
+            `;
+                });
+
+                const card = document.createElement("div");
+                card.className = "card";
+                card.innerHTML = `
+            <div class="comment-header">
+                <span class="username">${comment.username}</span>
+                <span class="like-count">♥ ${comment.likes}</span>
+            </div>
+            <p>${comment.comment}</p>
+
+            <button class="like-btn"  onclick="likeComment(${comment.id})">Like</button>
+            <button class="show-btn"  onclick="toggleReplies(${comment.id})">Show Replies (${comment.replies.length})</button>
+            <button class="reply-btn" onclick="showReplyForm(${comment.id})">Reply</button>
+
+        
+            <div class="reply-box" id="replyBox-${comment.id}">
+                
+                ${repliesHTML}
+
+                <div class="reply-form" id="replyForm-${comment.id}">
+                    <input type="text"     id="replyName-${comment.id}"    placeholder="Nama kamu">
+                    <textarea             id="replyText-${comment.id}"    placeholder="Tulis reply..." rows="3"></textarea>
+                    <button class="send-btn" onclick="addReply(${comment.id})">Kirim Reply</button>
+                </div>
+
+            </div>
+        `;
+
+                container.appendChild(card);
+            });
+        }
+
+
+        function addComment() {
+            const usernameInput = document.getElementById("username");
+            const commentInput = document.getElementById("comment");
+
+            const namaUser = usernameInput.value.trim();
+            const isiKomentar = commentInput.value.trim();
+
+            if (namaUser === "" || isiKomentar === "") {
+                alert("Nama dan komentar tidak boleh kosong!");
+                return;
+            }
+
+            const komentarBaru = {
+                id: Date.now(),
+                username: namaUser,
+                comment: isiKomentar,
+                likes: 0,
+                replies: []
+            };
+
+
+            comments.push(komentarBaru);
+
+            saveData();
+            renderComments();
+
+            usernameInput.value = "";
+            commentInput.value = "";
+        }
+
+
+        function likeComment(id) {
+            const komentar = comments.find(function (c) {
+                return c.id === id;
+            });
+
+            if (komentar) {
+                komentar.likes++;
+                saveData();
+                renderComments();
+            }
+        }
+
+        function toggleReplies(id) {
+            const replyBox = document.getElementById("replyBox-" + id);
+
+
+            if (replyBox.style.display === "block") {
+                replyBox.style.display = "none";
+            } else {
+                replyBox.style.display = "block";
+            }
+        }
+
+
+
+        function showReplyForm(id) {
+            const replyBox = document.getElementById("replyBox-" + id);
+            const replyForm = document.getElementById("replyForm-" + id);
+
+            replyBox.style.display = "block";
+
+            if (replyForm.style.display === "block") {
+                replyForm.style.display = "none";
+            } else {
+                replyForm.style.display = "block";
+            }
+        }
+
+
+
+        function addReply(id) {
+            const nameInput = document.getElementById("replyName-" + id);
+            const textInput = document.getElementById("replyText-" + id);
+
+            const namaReply = nameInput.value.trim();
+            const isiReply = textInput.value.trim();
+
+            if (namaReply === "" || isiReply === "") {
+                alert("Nama dan isi reply tidak boleh kosong!");
+                return;
+            }
+
+            const komentar = comments.find(function (c) {
+                return c.id === id;
+            });
+
+            if (komentar) {
+                komentar.replies.push({
+                    username: namaReply,
+                    comment: isiReply
+                });
+
+                saveData();
+                renderComments();
+
+                const replyBox = document.getElementById("replyBox-" + id);
+                if (replyBox) {
+                    replyBox.style.display = "block";
+                }
+            }
+        }
+
+        renderComments();
+
+    </script>
+
+
+</body>
+
+</html>
